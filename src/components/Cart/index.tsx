@@ -7,8 +7,10 @@ import { useCart } from '../../hooks/useCart'
 import {
   ButtonCartLength,
   ButtonContainer,
+  EmptyCart,
   ModalClose,
   ModalContent,
+  ModalDescription,
   ModalOverlay,
   ProductCart,
   ProductCartWrapper,
@@ -16,6 +18,7 @@ import {
   ProductInfo,
   ProductsResume
 } from './styles'
+import { Spinner } from '../Spinner'
 
 export function Cart() {
   const [isCreatingCheckoutSession, setIsCreatingCheckoutSession] = useState(false)
@@ -69,38 +72,50 @@ export function Cart() {
           <Dialog.Title>
             Sacola de compras
           </Dialog.Title>
-          <Dialog.Description>
-            <ProductCartWrapper>
-              {cartItems.map((cartItem) => {
-                return (
-                  <ProductCart key={cartItem.id}>
-                    <ProductImage>
-                      <Image src={cartItem.imageUrl} alt='' width={94} height={94} />
-                    </ProductImage>
-                    <ProductInfo>
-                      <span>{cartItem.name}</span>
-                      <strong>{cartItem.price}</strong>
-                      <button onClick={() => removeCart(cartItem.id)}>Remover</button>
-                    </ProductInfo>
-                  </ProductCart>
-                )
-              })}
-            </ProductCartWrapper>
+          <ModalDescription>
+            {cartItems.length >= 1
+              ? (
+                <>
+                  <ProductCartWrapper>
+                    {cartItems.map((cartItem) => {
+                      return (
+                        <ProductCart key={cartItem.id}>
+                          <ProductImage>
+                            <Image src={cartItem.imageUrl} alt='' width={94} height={94} />
+                          </ProductImage>
+                          <ProductInfo>
+                            <span>{cartItem.name}</span>
+                            <strong>{cartItem.price}</strong>
+                            <button onClick={() => removeCart(cartItem.id)}>Remover</button>
+                          </ProductInfo>
+                        </ProductCart>
+                      )
+                    })}
+                  </ProductCartWrapper>
 
-            <ProductsResume>
-              <div>
-                <span>Quantidade</span>
-                <span>{cartItems.length}</span>
-              </div>
-              <div>
-                <strong>Valor Total</strong>
-                <strong>{formattedTotalPrice}</strong>
-              </div>
-              <button disabled={isCreatingCheckoutSession} onClick={handleBuyProduct}>
-                Finalizar compra
-              </button>
-            </ProductsResume>
-          </Dialog.Description>
+                  <ProductsResume>
+                    <div>
+                      <span>Quantidade</span>
+                      <span>{cartItems.length}</span>
+                    </div>
+                    <div>
+                      <strong>Valor Total</strong>
+                      <strong>{formattedTotalPrice}</strong>
+                    </div>
+                    <button disabled={isCreatingCheckoutSession} onClick={handleBuyProduct}>
+                      {isCreatingCheckoutSession ? <Spinner /> : 'Finalizar compra'}
+                    </button>
+                  </ProductsResume>
+                </>
+              )
+              : (
+                <EmptyCart>
+                  <span>Você não possui produto no carrinho</span>
+                </EmptyCart>
+              )
+            }
+
+          </ModalDescription>
           <ModalClose asChild>
             <X size={24} color='#8D8D99' weight='bold' />
           </ModalClose>

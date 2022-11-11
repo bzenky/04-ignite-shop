@@ -65,10 +65,11 @@ export const ModalContent = styled(Dialog.Content, {
     position: 'absolute',
     top: 0,
     right: '-100%',
-    padding: '72px 48px',
+    padding: '72px 48px 48px',
     width: '100%',
     maxWidth: '480px',
-    height: '100vh',
+    height: '100%',
+    maxHeight: '100vh',
     background: '$gray800',
 
     "&[data-state='open']": {
@@ -78,6 +79,13 @@ export const ModalContent = styled(Dialog.Content, {
     "&[data-state='closed']": {
         right: '-100%'
     }
+})
+
+export const ModalDescription = styled(Dialog.Description, {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    height: '100%',
 })
 
 export const ModalClose = styled(Dialog.Close, {
@@ -91,7 +99,6 @@ export const ProductCartWrapper = styled('div', {
     display: 'flex',
     flexDirection: 'column',
     gap: '40px',
-    height: '600px',
     overflowY: 'auto',
     marginTop: '40px'
 })
@@ -100,6 +107,17 @@ export const ProductCart = styled('div', {
     display: 'flex',
     alignItems: 'flex-start',
     gap: '18px',
+})
+
+export const EmptyCart = styled('div', {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100%',
+
+    span: {
+        fontSize: '1rem'
+    }
 })
 
 export const ProductImage = styled('div', {
@@ -160,11 +178,13 @@ export const ProductsResume = styled('div', {
     },
 
     button: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
         width: '100%',
         height: '79px',
         padding: '20px 32px',
         marginTop: '42px',
-        textAlign: 'center',
         background: '$green300',
         border: 'none',
         color: '$white',
