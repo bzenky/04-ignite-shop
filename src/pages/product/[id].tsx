@@ -25,6 +25,7 @@ interface ProductProps {
 
 export default function Product({ product }: ProductProps) {
   const { addCart, checkIfAlreadyInCart } = useCart()
+  const isProductAlreadyInCart = checkIfAlreadyInCart(product.id)
 
   function handleBuyProduct() {
     if (checkIfAlreadyInCart(product.id)) return
@@ -49,8 +50,11 @@ export default function Product({ product }: ProductProps) {
 
           <p>{product.description}</p>
 
-          <button disabled={checkIfAlreadyInCart(product.id)} onClick={handleBuyProduct}>
-            Colocar na sacola
+          <button disabled={isProductAlreadyInCart} onClick={handleBuyProduct}>
+            {isProductAlreadyInCart
+              ? 'Produto no carrinho'
+              : 'Colocar na sacola'
+            }
           </button>
         </ProductDetails>
       </ProductContainer>

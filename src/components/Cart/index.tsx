@@ -13,7 +13,6 @@ import { EmptyCart } from './EmptyCart'
 import { ContentCart } from './ContentCart'
 
 export function Cart() {
-
   const { cartItems } = useCart()
 
   return (
