@@ -4,13 +4,14 @@
 
 #
 
-![App Screenshot](https://i.imgur.com/77vq48J.png)
+![App Screenshot](https://i.imgur.com/j3qq298.png)
 
 ## Sobre
-Este é o quarto projeto da atualização 2022 da trilha ReactJS do Ignite.
+Este é o quarto desafio da atualização 2022 da trilha ReactJS do Ignite, desafio que se começou como um projeto de aprendizado e posteriormente como desafio foi implementado novas funcionalidades.
 
 ## Rotina
-- Comprar um produto
+- Adicionar produto no carrinho
+- Finalizar compra pelo carrinho
 - Realizar o checkout via stripe
 
 ## Stacks
