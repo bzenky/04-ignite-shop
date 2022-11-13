@@ -8,6 +8,14 @@ export const SuccessContainer = styled('main', {
   margin: '0 auto',
   height: 656,
 
+  '@container': {
+    padding: '0 1rem'
+  },
+
+  '@notebook': {
+    minHeight: 'calc(100vh - 120px)',
+  },
+
   h1: {
     fontSize: '$2xl',
     color: '$gray100'
@@ -38,6 +46,7 @@ export const SuccessContainer = styled('main', {
 
 export const ImageSection = styled('div', {
   display: 'flex',
+  flexWrap: 'wrap',
   justifyContent: 'center',
   marginTop: '4rem'
 })

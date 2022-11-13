@@ -7,6 +7,7 @@ export const EmptyCartContainer = styled('div', {
     height: '100%',
 
     span: {
-        fontSize: '1rem'
+        fontSize: '1rem',
+        textAlign: 'center'
     }
 })

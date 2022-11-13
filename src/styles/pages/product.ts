@@ -6,7 +6,17 @@ export const ProductContainer = styled('main', {
   alignItems: 'stretch',
   gap: '4rem',
   maxWidth: 1180,
-  margin: '0 auto'
+  margin: '0 auto',
+
+  '@md': {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+
+  '@container': {
+    padding: '1rem',
+  }
 })
 
 export const ImageContainer = styled('div', {
@@ -19,6 +29,10 @@ export const ImageContainer = styled('div', {
   background: 'linear-gradient(180deg, #1ea483 0%, #7465e4 100%)',
   borderRadius: 8,
   padding: '0.25rem',
+
+  '@md': {
+    height: 400
+  },
 
   img: {
     objectFit: 'cover'
@@ -59,6 +73,10 @@ export const ProductDetails = styled('div', {
     fontWeight: 'bold',
     fontSize: '$md',
     transition: 'background-color 0.2s ease-in-out',
+
+    '@md': {
+      marginTop: '1.5rem'
+    },
 
     '&:not(:disabled):hover': {
       backgroundColor: '$green300'

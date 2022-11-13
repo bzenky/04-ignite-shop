@@ -1,4 +1,4 @@
-import { styled } from "../../../styles";
+import { styled } from "../../../styles"
 
 export const ProductCartWrapper = styled('div', {
     display: 'flex',
@@ -76,7 +76,7 @@ export const ProductsResume = styled('div', {
         justifyContent: 'center',
         alignItems: 'center',
         width: '100%',
-        height: '79px',
+        height: '80px',
         padding: '20px 32px',
         marginTop: '42px',
         background: '$green300',
@@ -86,6 +86,11 @@ export const ProductsResume = styled('div', {
         fontSize: '1.125rem',
         borderRadius: 8,
         cursor: 'pointer',
+
+        '@md': {
+            height: '60px',
+            marginTop: '1.5rem'
+        },
 
         transition: 'background 0.2s ease-in-out',
 

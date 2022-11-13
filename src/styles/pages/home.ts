@@ -5,7 +5,16 @@ export const HomeContainer = styled('main', {
   width: '100%',
   maxWidth: 'calc(100vw - ((100vw - 1180px) / 2))',
   minHeight: 656,
-  marginLeft: 'auto'
+  marginLeft: 'auto',
+
+  '@container': {
+    paddingLeft: '1rem',
+  },
+
+  '@notebook': {
+    minHeight: 'calc(100vh - 120px)',
+    paddingBottom: '1rem'
+  }
 })
 
 export const Product = styled('div', {
@@ -76,6 +85,12 @@ export const Product = styled('div', {
     footer: {
       transform: 'translateY(0%)',
       opacity: 1,
+    },
+
+    '@container': {
+      footer: {
+        opacity: 0
+      }
     }
   }
 })

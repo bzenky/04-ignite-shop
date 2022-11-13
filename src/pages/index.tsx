@@ -1,17 +1,17 @@
 import { GetStaticProps } from "next"
+import Head from "next/head"
 import Image from "next/image"
 import Link from 'next/link'
 import { MouseEvent } from 'react'
 import { useKeenSlider } from 'keen-slider/react'
 import Stripe from "stripe"
 import { stripe } from "../lib/stripe"
+import { ProductProps } from "../contexts/CartContext"
+import { useCart } from "../hooks/useCart"
 
 import { HomeContainer, Product } from "../styles/pages/home"
-import 'keen-slider/keen-slider.min.css'
-import Head from "next/head"
 import { Handbag } from "phosphor-react"
-import { useCart } from "../hooks/useCart"
-import { ProductProps } from "../contexts/CartContext"
+import 'keen-slider/keen-slider.min.css'
 
 interface HomeProps {
   products: ProductProps[]
@@ -22,7 +22,22 @@ export default function Home({ products }: HomeProps) {
     slides: {
       perView: 3,
       spacing: 48,
-    }
+    },
+    mode: 'free',
+    breakpoints: {
+      '(max-width: 1366px)': {
+        slides: {
+          perView: 2.1,
+          spacing: 24,
+        }
+      },
+      '(max-width: 768px)': {
+        slides: {
+          perView: 1.1,
+          spacing: 12,
+        }
+      },
+    },
   })
 
   const { addCart, checkIfAlreadyInCart } = useCart()

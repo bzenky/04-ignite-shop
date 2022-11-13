@@ -1,5 +1,5 @@
-import * as Dialog from '@radix-ui/react-dialog';
-import { keyframes, styled } from '@stitches/react';
+import * as Dialog from '@radix-ui/react-dialog'
+import { keyframes, styled } from '@stitches/react'
 
 const fadeInAnimation = keyframes({
     '0%': { opacity: 0 },
@@ -65,27 +65,24 @@ export const ModalContent = styled(Dialog.Content, {
     position: 'absolute',
     top: 0,
     right: '-100%',
-    padding: '72px 48px 48px',
+    padding: '24px',
     width: '100%',
     maxWidth: '480px',
     height: '100%',
     maxHeight: '100vh',
     background: '$gray800',
+    zIndex: '2',
 
     "&[data-state='open']": {
-        right: 0
+        right: 0,
     },
-
-    "&[data-state='closed']": {
-        right: '-100%'
-    }
 })
 
 export const ModalDescription = styled(Dialog.Description, {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    height: '100%',
+    height: 'calc(100vh - 80px)',
 })
 
 export const ModalClose = styled(Dialog.Close, {

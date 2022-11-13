@@ -7,5 +7,13 @@ export const HeaderContainer = styled('header', {
   width: '100%',
   maxWidth: 1180,
   padding: '2rem 0',
-  margin: '0 auto'
+  margin: '0 auto',
+
+  '@sm': {
+    padding: '1.5rem 1rem',
+  },
+
+  '@container': {
+    padding: '2rem 1rem',
+  },
 })
