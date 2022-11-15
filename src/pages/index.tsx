@@ -23,7 +23,7 @@ export default function Home({ products }: HomeProps) {
       perView: 3,
       spacing: 48,
     },
-    mode: 'free',
+    rubberband: false,
     breakpoints: {
       '(max-width: 1366px)': {
         slides: {
